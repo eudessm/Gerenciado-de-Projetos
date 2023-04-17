@@ -94,19 +94,20 @@ public class ProjectContoller {
     }
     //Metodo para lista os projeto
     public List<Project> getAll (int id){
-        String sql = "SELECT * FROM project WHERE id=?";
+        //Como é uma lista de projeto não precisa de filto, vai voltar todos os projetos
+        String sql = "SELECT * FROM project";
         Connection conn = null;
         PreparedStatement statement = null;
+        List<Project> projects = new ArrayList<Project>();
         // ResultSet vai guarda as informações que vinherem do banco
         ResultSet resultSet = null;
-        List<Project> projects = new ArrayList<Project>();
+        
         
         try {
             conn = ConnectionFactory.getConnection();
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
             resultSet = statement.executeQuery();
-             resultSet = statement.executeQuery();
             // Para pegar as informações que estão no banco e guarda dentro do atriuto resultSet 
             //O .next() é para enquando tiver valor eu vou pegando
             while(resultSet.next()){

@@ -99,7 +99,7 @@ public class TaskController {
         }        
     }
     
-    public void removeById (int taskId) throws SQLException{
+    public void removeById (int taskId){
         // criando uma String atribuindo o comando DELETE de slq para ir ate a tabale "FROM tasks" que eu quero
         // apagar a informação passando "WHERE" o campo 
         String sql = "DELETE FROM tasks WHERE id=?";
@@ -118,7 +118,7 @@ public class TaskController {
             // Estamos solicitando que execute o comando no banco
             statement.execute();
         } catch (Exception ex) {
-            throw new SQLException("Erro ao deletar a tarefa");
+            throw new RuntimeException("Erro ao deletar a tarefa");
         }finally{
             //O bloco "finally" sempre vai ser executado ao final do try independente e utilizamos para encerrar a conexão
             ConnectionFactory.closeConnection(conn,statement);

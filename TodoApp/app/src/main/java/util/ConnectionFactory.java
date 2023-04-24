@@ -22,6 +22,7 @@ public class ConnectionFactory {
     //no meu caso o wamp mostra a porta 
     // "/todoapp" é o nome do meu sistema, e vc pode alterar para o nome que 
     //foi dado para o seu 
+    //public static final String URL = "jdbc:mysql://localhost:3306/todoapp";
     public static final String URL = "jdbc:mysql://localhost:3306/todoapp";
     // "root" e o usuário do banco
     public static final String USER = "root";
